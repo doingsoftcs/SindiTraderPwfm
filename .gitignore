@@ -1,0 +1,8 @@
+/SindiTrader/obj
+/SindiTrader/bin
+/SindiTrader/ILLink
+/Exe/*.config
+/Exe/*.dll
+/Exe/*.pdb
+/Exe/*.xml
+
