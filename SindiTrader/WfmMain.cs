@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//! @file   WfmMain.cs
+//! @file   WfmMainMvp.cs
 //! @brief  
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 using System;
@@ -22,7 +22,7 @@ namespace SindiTrader
             //
             IView view = new WfmView();
             IModel model = new WfmModel();
-            IController controller = new WfmController(view, model);
+            _ = new WfmPresenter(view, model);
             Application.Run(view as Form);
 
         }

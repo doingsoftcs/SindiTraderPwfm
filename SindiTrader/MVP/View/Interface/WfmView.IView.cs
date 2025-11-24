@@ -9,23 +9,20 @@ using System.Windows.Forms;
 //
 namespace SindiTrader
 {
-    public partial class WfmView : Form, IView, IModelToView
+    public partial class WfmView : Form, IView
     {
-        protected IController _pController;
+        protected Action<string, string, string, string, string> _OnInit;
+        protected Action _OnClose;
+        protected Action<string> _OnRequest;
 
 
         //
-        public void SetController(IController p)
+        public void AddAction(IViewToPresenter ivtp)
         {
-            _pController = p;
+            _OnInit += ivtp.Init;
+            _OnClose += ivtp.Close;
+            _OnRequest += ivtp.Request;
         }
 
-        //
-        public void Request(string 단축코드)
-        {
-            _pController?.Request(단축코드);
-        }
-
-
-    }// public partial class WfmView : Form
+    }// public partial class WfmView : Form, IView
 }// namespace SindiTrader

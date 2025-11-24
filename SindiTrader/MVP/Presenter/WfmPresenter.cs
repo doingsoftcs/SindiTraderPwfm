@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//! @file   WfmController.cs
+//! @file   WfmPresenter.cs
 //! @brief  
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -8,22 +8,21 @@
 namespace SindiTrader
 {
     //
-    public class WfmController : IController
+    public class WfmPresenter : IViewToPresenter, IModelToPresenter
     {
         protected IView _pView;
         protected IModel _pModel;
 
 
         //
-        public WfmController(IView v, IModel m)
+        public WfmPresenter(IView v, IModel m)
         {
             _pView = v;
-            _pView?.SetController(this);
+            _pView?.AddAction(this);
 
             //
             _pModel = m;
-            if (null != v)
-                _pModel?.AddAction(v as IModelToView);
+            _pModel?.AddAction(this);
         }
 
         //
@@ -43,6 +42,19 @@ namespace SindiTrader
         {
             _pModel?.Request(단축코드);
         }
+
+        //
+        public void ReceiveErrorFromModel(ErrorFromModel p)
+        {
+            _pView?.ReceiveErrorFromModel(p);
+        }
+
+        //
+        public void ReceiveMsgFromModel(MsgFromModel p)
+        {
+            _pView?.ReceiveMsgFromModel(p);
+        }
+
 
     }// public class WfmController : IController
 }// namespace SindiTrader

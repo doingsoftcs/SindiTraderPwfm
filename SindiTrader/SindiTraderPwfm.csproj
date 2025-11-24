@@ -7,7 +7,7 @@
     <ProjectGuid>{E8E99D12-BE19-4B11-8811-BC0BDBAE9778}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SindiTrader</RootNamespace>
-    <AssemblyName>SindiTraderPwfm</AssemblyName>
+    <AssemblyName>SindiTraderPwfm%28MVP%29</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -112,31 +112,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVC\Controller\IController.cs" />
-    <Compile Include="MVC\Controller\WfmController.cs" />
-    <Compile Include="MVC\Model\IModel.cs" />
-    <Compile Include="MVC\Model\WfmModel.Chart.cs" />
-    <Compile Include="MVC\Model\WfmModel.cs" />
-    <Compile Include="MVC\Model\WfmModel.IModel.cs" />
-    <Compile Include="MVC\Model\WfmModel.Indi.cs" />
-    <Compile Include="MVC\Model\WfmModel.SpotMaster.cs" />
-    <Compile Include="MVC\View\WfmView.IModelToView.cs">
+    <Compile Include="MVP\Model\Interface\WfmModel.IPresenterToModel.cs" />
+    <Compile Include="MVP\Presenter\IPresenter.cs" />
+    <Compile Include="MVP\Presenter\WfmPresenter.cs" />
+    <Compile Include="MVP\Model\Interface\IModel.cs" />
+    <Compile Include="MVP\Model\WfmModel.Chart.cs" />
+    <Compile Include="MVP\Model\WfmModel.cs" />
+    <Compile Include="MVP\Model\Interface\WfmModel.IModel.cs" />
+    <Compile Include="MVP\Model\WfmModel.Indi.cs" />
+    <Compile Include="MVP\Model\WfmModel.SpotMaster.cs" />
+    <Compile Include="MVP\View\Interface\WfmView.IPresenterToView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ResponseClass\SpotChart.Indi.cs" />
     <Compile Include="ResponseClass\SpotMaster.Indi.cs" />
-    <Compile Include="MVC\View\IView.cs" />
-    <Compile Include="MVC\View\WfmView.IDPW.cs">
+    <Compile Include="MVP\View\Interface\IView.cs" />
+    <Compile Include="MVP\View\WfmView.IDPW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MVC\View\WfmView.Layout.cs">
+    <Compile Include="MVP\View\WfmView.Layout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MVC\View\WfmView.IView.cs">
+    <Compile Include="MVP\View\Interface\WfmView.IView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WfmMain.cs" />
-    <Compile Include="MVC\View\WfmView.Form.cs">
+    <Compile Include="MVP\View\WfmView.Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CS\ListViewExtension.cs" />

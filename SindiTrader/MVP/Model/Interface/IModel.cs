@@ -8,22 +8,17 @@
 namespace SindiTrader
 {
     //
-    public interface IModelToView
+    public interface IModel : IPresenterToModel
     {
-        void ReceiveErrorFromModel(ErrorFromModel p);
-        void ReceiveMsgFromModel(MsgFromModel p);
+        void AddAction(IModelToPresenter imtp);
     }
 
 
     //
-    public interface IModel
+    public interface IModelToPresenter
     {
-        void Init(string id, string pw, string certificate, string exe, string 단축코드);
-        void Close();
-        void Request(string 단축코드);
-
-        //
-        void AddAction(IModelToView imtv);
+        void ReceiveErrorFromModel(ErrorFromModel p);
+        void ReceiveMsgFromModel(MsgFromModel p);
     }
 
 

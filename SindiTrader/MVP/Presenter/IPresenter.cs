@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//! @file   IView.cs
+//! @file   IPresenter.cs
 //! @brief  
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -8,10 +8,15 @@
 namespace SindiTrader
 {
     //
-    public interface IView
+    public interface IPresenterToModel : IViewToPresenter
     {
-        void SetController(IController ic);
-        void Request(string 단축코드);
     }
+
+
+    //
+    public interface IPresenterToView : IModelToPresenter
+    {
+    }
+
 
 }// namespace SindiTrader

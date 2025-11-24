@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//! @file   WfmView.IModelToView.cs
+//! @file   WfmView.IPresenterToView.cs
 //! @brief  
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 using System;
@@ -9,7 +9,7 @@ using System.Windows.Forms;
 //
 namespace SindiTrader
 {
-    public partial class WfmView : Form, IView, IModelToView
+    public partial class WfmView : Form, IView
     {
         //
         public void ReceiveErrorFromModel(ErrorFromModel p)
@@ -58,5 +58,5 @@ namespace SindiTrader
         }
 
 
-    }// public partial class WfmView : Form
+    }// public partial class WfmView : Form, IView
 }// namespace SindiTrader

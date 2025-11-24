@@ -8,7 +8,7 @@ using System.Windows.Forms;
 //
 namespace SindiTrader
 {
-    public partial class WfmView : Form, IView, IModelToView
+    public partial class WfmView : Form, IView
     {
         public const string SINDI_ID = null;// 신한인디아이디.
         public const string SINDI_PW = null;// 신한인디비번.
@@ -19,5 +19,5 @@ namespace SindiTrader
         public const string INITSTOCKCODE = "005930";// 삼성전자.
 
 
-    }// public partial class WfmView : Form
+    }// public partial class WfmView : Form, IView
 }// namespace SindiTrader

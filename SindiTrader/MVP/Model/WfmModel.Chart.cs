@@ -19,7 +19,6 @@ namespace SindiTrader
         protected bool _현물차트_요청(string 단축코드)
         {
             DateTime now = DateTime.Now;
-            //return 현물차트.요청(_pIndiTr64, _dicRqIdQuery, 단축코드, "일", "1", $"{now.Year}0101", null, "20");
             return 현물차트.요청(_pIndiTr64, _dicRqIdQuery, 단축코드, "일", "1", $"{now.Year}0101", $"{now.Year}{now.Month:D2}{now.Day:D2}", "20");
         }
 

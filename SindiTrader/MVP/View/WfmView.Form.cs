@@ -10,7 +10,7 @@ using System.Windows.Forms;
 //
 namespace SindiTrader
 {
-    public partial class WfmView : Form, IView, IModelToView
+    public partial class WfmView : Form, IView
     {
         //
         public WfmView()
@@ -78,13 +78,15 @@ namespace SindiTrader
             }
 
             //
-            _pController?.Init(SINDI_ID/*신한인디아이디*/, SINDI_PW/*신한인디비번*/, FINANCIAL_CERTIFICATE/*공인인증비번*/, SINDI_EXE/*신한인디 실행파일 경로*/, INITSTOCKCODE);
+            if (null != _OnInit)
+                _OnInit(SINDI_ID/*신한인디아이디*/, SINDI_PW/*신한인디비번*/, FINANCIAL_CERTIFICATE/*공인인증비번*/, SINDI_EXE/*신한인디 실행파일 경로*/, INITSTOCKCODE);
         }
 
         //
         protected void _FormClosingEvent(Object sender, EventArgs e)
         {
-            _pController?.Close();
+            if (null != _OnClose)
+                _OnClose();
         }
 
         //
@@ -116,5 +118,5 @@ namespace SindiTrader
         }
 
 
-    }// public partial class WfmView : Form
+    }// public partial class WfmView : Form, IView
 }// namespace SindiTrader

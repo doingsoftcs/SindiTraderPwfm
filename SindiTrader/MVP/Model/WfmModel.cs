@@ -103,11 +103,11 @@ namespace SindiTrader
     //
     public partial class WfmModel : IModel
     {
-        protected Action<ErrorFromModel> _SendError;
+        protected Action<ErrorFromModel> _OnSendError;
         protected ErrorFromModel _pErrorFromModel = new ErrorFromModel();
 
         //
-        protected Action<MsgFromModel> _SendMsg;
+        protected Action<MsgFromModel> _OnSendMsg;
         protected MsgFromModel _pMsgFromModel = new MsgFromModel();
 
 
@@ -115,24 +115,24 @@ namespace SindiTrader
         protected void _SendErrorToView(ErrorFromModel.Type type, int id, string error, bool appexit = false)
         {
             _pErrorFromModel.Set(type, id, error, appexit);
-            if (null != _SendError)
-                _SendError(_pErrorFromModel);
+            if (null != _OnSendError)
+                _OnSendError(_pErrorFromModel);
         }
 
         //
         protected void _SendMsgToView(MsgFromModel.Type type, int id, string msg)
         {
             _pMsgFromModel.Set(type, id, msg);
-            if (null != _SendMsg)
-                _SendMsg(_pMsgFromModel);
+            if (null != _OnSendMsg)
+                _OnSendMsg(_pMsgFromModel);
         }
 
         //
         protected void _SendMsgToView(MsgFromModel.Type type, int id, string msg, 현물차트 p, string 현물마스터)
         {
             _pMsgFromModel.Set(type, id, msg, p, 현물마스터);
-            if (null != _SendMsg)
-                _SendMsg(_pMsgFromModel);
+            if (null != _OnSendMsg)
+                _OnSendMsg(_pMsgFromModel);
         }
 
         //

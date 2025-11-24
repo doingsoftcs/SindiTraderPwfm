@@ -12,7 +12,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 //
 namespace SindiTrader
 {
-    public partial class WfmView : Form, IView, IModelToView
+    public partial class WfmView : Form, IView
     {
         protected TableLayoutPanel _tlp = new TableLayoutPanel();
         protected FlowLayoutPanel _flp = new FlowLayoutPanel();
@@ -122,7 +122,8 @@ namespace SindiTrader
                 }
 
                 //
-                Request(단축코드);
+                if (null != _OnRequest)
+                    _OnRequest(단축코드);
             }
         }
 
@@ -446,5 +447,5 @@ namespace SindiTrader
         }
 
 
-    }// public partial class WfmView : Form
+    }// public partial class WfmView : Form, IView
 }// namespace SindiTrader
