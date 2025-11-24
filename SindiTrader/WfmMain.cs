@@ -18,7 +18,13 @@ namespace SindiTrader
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WfmForm());
+
+            //
+            IView view = new WfmView();
+            IModel model = new WfmModel();
+            IController controller = new WfmController(view, model);
+            Application.Run(view as Form);
+
         }
     }// static class MainClass
 }// namespace SindiTrader
